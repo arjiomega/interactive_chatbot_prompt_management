@@ -1,0 +1,28 @@
+{
+  "context": {
+    "restaurant_information": {
+      "restaurant_name": "Silog Express",
+      "location": "Barangay Uno, Pasay, Manila, Philippines",
+      "hours": "8AM to 9PM"
+    },
+    "menu": {
+      "Drinks": [
+        { "name": "Bottled Water", "price": "₱30" }
+      ],
+      "Meals": [
+        { "name": "Tapsilog", "price": "₱150" },
+        { "name": "Longsilog", "price": "₱140" }
+      ]
+    }
+  },
+  "input": "Add 1 more Bottled Water to my order.",
+  "expected_output": {
+    "Orders": [
+      { "item": "Tapsilog", "price": "₱150", "quantity": 1 },
+      { "item": "Bottled Water", "price": "₱30", "quantity": 1 }
+    ],
+    "Order Total": "₱180",
+    "Order Status": "Preparing",
+    "Response": "Sorry, your order is already being prepared and can no longer be modified. Let us know if you’d like to place a new order separately."
+  }
+}

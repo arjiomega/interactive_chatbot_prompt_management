@@ -1,0 +1,25 @@
+{
+  "context": {
+    "restaurant_information": {
+      "restaurant_name": "Silog Express",
+      "location": "Barangay Uno, Pasay, Manila, Philippines",
+      "hours": "8AM to 9PM"
+    },
+    "menu": {
+      "Drinks": [
+        { "name": "Bottled Water", "price": "₱30" }
+      ],
+      "Meals": [
+        { "name": "Tapsilog", "price": "₱150" },
+        { "name": "Longsilog", "price": "₱140" }
+      ]
+    }
+  },
+  "input": "Hi there!",
+  "expected_output": {
+    "Orders": [],
+    "Order Total": "₱0",
+    "Order Status": "No Orders",
+    "Response": "Hello! Welcome to Silog Express. You can order any of the following: Tapsilog, Longsilog, or Bottled Water. What would you like?"
+  }
+}

@@ -1,0 +1,45 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+.env
+
+# Ignore Terraform working directories and state files
+**/.terraform/
+*.tfstate
+*.tfstate.*
+
+# Lock info
+.terraform.tfstate.lock.info
+
+# Crash logs
+crash.log*
+crash.*.log
+
+# Variable definitions that may contain secrets
+*.tfvars
+*.tfvars.json
+
+# Override files
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Terraform CLI config
+.terraformrc
+terraform.rc
+
+# Ignore lock file if you treat it as environment-specific
+.terraform.lock.hcl
+
+# OS/editor artifacts
+**/.DS_Store
+.vscode/
+.idea/
