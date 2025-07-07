@@ -12,6 +12,11 @@ variable "my_ip" {
     type = string
 }
 
+variable "OPENAI_API_KEY" {
+  description = "Your OPEN AI API KEY"
+  type = string
+}
+
 resource "aws_security_group" "sg" {
   name        = "allow_ssh_ping"
   description = "Allow SSH and ICMP"
@@ -21,6 +26,12 @@ resource "aws_security_group" "sg" {
     to_port     = 65535
     protocol    = "tcp"
     cidr_blocks = [var.my_ip]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
 
@@ -32,30 +43,9 @@ resource "aws_instance" "free_tier_ec2" {
 
   vpc_security_group_ids = [aws_security_group.sg.id]
 
-  user_data = <<-EOF
-            #!/bin/bash
-            # Install dependencies
-            yum update -y
-            yum install -y git python3
-
-            # Set up a virtual environment
-            python3 -m venv /home/ec2-user/appenv
-            source /home/ec2-user/appenv/bin/activate
-
-            # Clone your Streamlit repo
-            cd /home/ec2-user
-            git clone https://github.com/yourusername/your-streamlit-repo.git
-            cd your-streamlit-repo
-
-            # Install requirements if present
-            if [ -f requirements.txt ]; then
-            pip install -r requirements.txt
-            fi
-
-            # Run Streamlit app in the background, listening on port 8501
-            streamlit run app.py --server.port 8501 --server.enableCORS false \
-            &> /home/ec2-user/streamlit.log &
-            EOF
+  user_data = templatefile("${path.module}/ec2_bootstrap.sh", {
+    OPENAI_API_KEY = var.OPENAI_API_KEY
+  })
 
 
   tags = {
