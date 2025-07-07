@@ -6,7 +6,7 @@ initialize_if_empty()
 
 st.set_page_config(
     page_title="Manage Prompt",
-    page_icon="👋",
+    page_icon="🤖",
 )
 
 st.header("Manage Prompt")

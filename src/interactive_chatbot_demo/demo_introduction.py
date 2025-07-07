@@ -59,5 +59,9 @@ Great for:
 ---
 
 👈 **Select a page from the sidebar** to begin your exploration.
+
+---
+🔗 **[View the Source Code on GitHub](https://github.com/arjiomega/interactive_chatbot_prompt_management)**  
+Explore the full implementation, contribute, or dive deeper into the codebase.
 """
 )

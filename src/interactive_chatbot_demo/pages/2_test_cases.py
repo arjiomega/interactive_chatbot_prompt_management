@@ -11,7 +11,7 @@ initialize_if_empty()
 
 st.set_page_config(
     page_title="Test Cases",
-    page_icon="👋",
+    page_icon="🤖",
 )
 
 st.header("Test Cases")
